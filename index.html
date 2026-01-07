@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>静默陪伴 Quiet Companion</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'void': '#08080a',
+              'void-light': '#121216',
+              'gold': {
+                100: '#fdf6e3',
+                200: '#ece1be',
+                300: '#dcc692',
+                400: '#dba653',
+                500: '#b8860b', // Dark Goldenrod
+                600: '#9b7008',
+                700: '#75530e',
+                800: '#422f08',
+                900: '#261a04',
+              }
+            },
+            fontFamily: {
+              serif: ['"Noto Serif SC"', '"Songti SC"', 'SimSun', 'serif'],
+              sans: ['"Inter"', 'system-ui', 'sans-serif'],
+            },
+            animation: {
+              'float': 'float 6s ease-in-out infinite',
+              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'spin-slow': 'spin 12s linear infinite',
+            },
+            keyframes: {
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' },
+              }
+            }
+          },
+        },
+      }
+    </script>
+    <style>
+      body {
+        background-color: #08080a;
+        color: #ece1be;
+        overflow: hidden; /* App handles scrolling */
+      }
+      /* Hide scrollbar for clean UI */
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .card-preserve-3d {
+        transform-style: preserve-3d;
+      }
+      .backface-hidden {
+        backface-visibility: hidden;
+      }
+      .rotate-y-180 {
+        transform: rotateY(180deg);
+      }
+      /* Subtle star dust effect */
+      .stardust {
+        position: absolute;
+        width: 2px;
+        height: 2px;
+        background: white;
+        border-radius: 50%;
+        opacity: 0;
+        animation: twinkle 3s infinite;
+      }
+      @keyframes twinkle {
+        0% { opacity: 0; transform: scale(0.5); }
+        50% { opacity: 0.7; transform: scale(1); }
+        100% { opacity: 0; transform: scale(0.5); }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
